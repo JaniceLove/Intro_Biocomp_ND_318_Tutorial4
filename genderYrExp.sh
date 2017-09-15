@@ -2,4 +2,4 @@
 #Usage:bash genderYrExp.sh $@ where $@ is wages.csv or whatever file to be sorted 
 
 
-cat "$@" | sort -k 1| tr -d ' '| cut -d ',' -f 1,2| tr ',' ' '  > challenge1.txt
+cat "$@" | sort -uk 1| tr -d ' '| cut -d ',' -f 1,2| tr ',' ' '|sort -u  > challenge1.txt
