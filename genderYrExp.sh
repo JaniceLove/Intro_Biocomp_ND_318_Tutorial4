@@ -2,4 +2,14 @@
 #Usage:bash genderYrExp.sh $@ where $@ is wages.csv or whatever file to be sorted 
 
 
-cat "$@" | sort -uk 1| tr -d ' '| cut -d ',' -f 1,2| tr ',' ' '|sort -u  > challenge1.txt
+cat "$@" | tr ',' ' ' | sort -k 1,1d -k2,2n | cut -d ',' -f 1,2  > challenge1.txt
+
+
+#sorts wages.csv by highest and lowest earner and prints to stdout
+#counts the number of females in the top 10 earners
+
+
+for column in wages.csv; do echo "highest earner in $column:"; cat wages.csv | tr ',' ' ' | cut -d "," -f 1,2,4 | sort -k 4,4rn | head -n 1; 
+echo "lowest earner in $column:"; cat wages.csv | grep 'male' | tr ',' ' ' | cut -d "," -f 1,2,4 | sort -k 4,4rn | tail -n 1;
+echo "number of females in top 10 earners:" ; cat wages.csv | tr ',' ' ' | sort -k 4,4n | head -n 10 | grep 'female' | wc -l; done
+
