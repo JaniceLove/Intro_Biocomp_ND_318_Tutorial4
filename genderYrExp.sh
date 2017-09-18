@@ -1,6 +1,6 @@
 #Authors: Melissa Stephens, Janice Love
 #Script to sort wages.csv by gender, save gender and years Experience to a new file, seperated by space
-#Usage:bash genderYrExp.sh $@ where $@ is wages.csv or whatever file to be sorted 
+#Usage:bash genderYrExp.sh $@ where $@ is wages.csv or whatever file to be sorted. Save data to temp file, numeric sort temp file 
 
 
 cat "$@" |cut -d ',' -f 1,2  |  sort -u | tr ',' ' '  > temp.txt
