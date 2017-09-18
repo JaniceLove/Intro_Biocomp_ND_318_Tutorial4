@@ -1,8 +1,9 @@
+#Authors: Melissa Stephens, Janice Love
 #Script to sort wages.csv by gender, save gender and years Experience to a new file, seperated by space
 #Usage:bash genderYrExp.sh $@ where $@ is wages.csv or whatever file to be sorted 
 
 
-cat "$@" | sort -k 1,1d -k2,2n | cut -d ',' -f 1,2 | tr ',' ' '| uniq -u  > challenge1.txt
+cat "$@" | sort -k 1,1d -k2,2n | cut -d ',' -f 1,2 | tr ',' ' '  > challenge1.txt
 
 
 #sorts wages.csv by highest and lowest earner and prints to stdout
