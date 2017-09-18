@@ -13,3 +13,7 @@ for column in wages.csv; do echo "highest earner in $column:"; cat wages.csv | t
 echo "lowest earner in $column:"; cat wages.csv | grep 'male' | tr ',' ' ' | cut -d "," -f 1,2,4 | sort -k 4,4rn | tail -n 1;
 echo "number of females in top 10 earners:" ; cat wages.csv | tr ',' ' ' | sort -k 4,4n | head -n 10 | grep 'female' | wc -l; done
 
+
+#script to compare effect of graduating college on minimum wage for earners in wages.csv dataset 
+
+cat "$@" | cut -d "," -f 3,4 | head -10
