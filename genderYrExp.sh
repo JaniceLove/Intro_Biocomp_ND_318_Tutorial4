@@ -3,7 +3,8 @@
 #Usage:bash genderYrExp.sh $@ where $@ is wages.csv or whatever file to be sorted 
 
 
-cat "$@" | sort -k 1,1d -k2,2n | cut -d ',' -f 1,2 | tr ',' ' '  > challenge1.txt
+cat "$@" |cut -d ',' -f 1,2  |  sort -u | tr ',' ' '  > temp.txt
+cat temp.txt | sort -k1.1d,1 -k2.2n,2 > challenge1.txt
 
 
 #sorts wages.csv by highest and lowest earner and prints to stdout
