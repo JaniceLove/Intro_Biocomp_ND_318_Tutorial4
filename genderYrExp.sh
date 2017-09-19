@@ -18,4 +18,4 @@ echo "number of females in top 10 earners:" ; cat wages.csv | tr ',' ' ' | sort 
 
 #script to compare effect of graduating college on minimum wage for earners in wages.csv dataset 
 
-cat "$@" | cut -d "," -f 3,4 | head -10
+cat wages.csv | cut -d ',' -f 3,4 | awk -F ',' ' {print $0, $1-$2}'
