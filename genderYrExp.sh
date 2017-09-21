@@ -16,6 +16,9 @@ echo "lowest earner in $column:"; cat wages.csv | grep 'male' | tr ',' ' ' | cut
 echo "number of females in top 10 earners:" ; cat wages.csv | tr ',' ' ' | sort -k 4,4n | head -n 10 | grep 'female' | wc -l; done
 
 
-#script to compare effect of graduating college on minimum wage for earners in wages.csv dataset 
+#script to compare effect of graduating college (12 or 16 years) on minimum wage for earners in wages.csv dataset
+ 
+for file in wages.csv; do cat wages.csv | tr ',' ' ' | cut -d ' ' -f 3,4 | sort -k 3n | grep '12 ' | awk '{ total += $2; count++ } END { print "average min wage, 12 years of school = " total/count }';
+cat wages.csv | tr ',' ' ' | cut -d ' ' -f 3,4 | sort -k 3n | grep '16 ' | awk '{ total += $2; count++ } END { print "average min wage, 16 years of school= " total/count }'; done
 
-cat wages.csv | cut -d ',' -f 3,4 | awk -F ',' ' {print $0, $1-$2}'
+
